@@ -35,7 +35,7 @@ $(document).ready(function () {
                         var x = (new Date()).getTime(), // current time
                             y = bits.p;
                         series.addPoint([x, y], true, true);
-                    }, 1000);
+                    }, 5000);
                 }
             }
         },
