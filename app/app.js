@@ -1,13 +1,13 @@
-const path = require('path');
-const express = require('express');
+const path       = require('path');
+const express    = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const favicon = require('serve-favicon');
+const mongoose   = require('mongoose');
+const favicon    = require('serve-favicon');
 
 const { getBit } = require('./bitfinex');
-const Bit = require('./models/bit');
+const Bit        = require('./models/bit');
 
-const app = express();
+const app        = express();
 
 const mongoDB = 'mongodb://admin:admin12345@ds245805.mlab.com:45805/bitfinex_db';
 mongoose.connect(mongoDB, {
@@ -16,9 +16,7 @@ mongoose.connect(mongoDB, {
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));  
 
-// const rootPath = path.resolve('./app');
-
-const viewsPath = path.join(__dirname + '/views');
+const viewsPath  = path.join(__dirname + '/views');
 const staticPath = path.join(__dirname + '/public');
 
 app.set('views', viewsPath);
@@ -61,7 +59,7 @@ app.use(function(err, req, res, next) {
   
     // render the error page
     res.status(err.status || 500);
-    res.send('error');
+    res.send('Error');
   });
 
 
